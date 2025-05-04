@@ -9,4 +9,11 @@
 //   $color-pack: false
 // );
 
-@import "@/styles/colors.scss"
+:root {
+  --primary-color: #3d50ff;
+  --secondary-color: #ff45fe;
+  --accent-color: #ffd700;
+  --dark-color: #3a3a3c;
+  --light-color: #f9f9f9;
+  --highlight-color: #0077ff;
+}
