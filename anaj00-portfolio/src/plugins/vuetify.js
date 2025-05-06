@@ -14,17 +14,18 @@ import { createVuetify } from 'vuetify'
 // Vuetify theme setup
 export default createVuetify({
   theme: {
-    defaultTheme: 'light',
+    defaultTheme: "light",
     themes: {
       light: {
         colors: {
-          primary: '#776B5D', // Deep base
-          secondary: '#B0A695', // Muted soft tone
-          accent: '#EBE3D5', // Warm highlight
-          background: '#F3EEEA', // Light background
-          surface: '#F3EEEA', // Match background for cards, etc.
+          primary: "#FFFFFF",
+          secondary: "#212833",
+          accent: "#AD6978",
+          background: "#F5F8F7",
+          surface: "#FFFFFF",
+          black: "#14171F",
         },
       },
     },
   },
-})
+});

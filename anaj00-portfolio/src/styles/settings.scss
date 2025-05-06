@@ -10,14 +10,10 @@
 // );
 
 :root {
-  --primary-color: #776B5D;    // Deep base
-  --secondary-color: #B0A695; // Muted soft tone
-  --accent-color: #EBE3D5;     // Warm highlight
-  --background-color: #F3EEEA; // Light background
+  --primary: #FFFFFF;    
+  --secondary: #212833; 
+  --accent: #AD6978;     
+  --background: #F5F8F7; 
+  --surface: #FFFFFF;
 }
 
-// Optional: SCSS variables for use in SASS
-$primary-color: #776B5D;
-$secondary-color: #B0A695;
-$accent-color: #EBE3D5;
-$background-color: #F3EEEA;
