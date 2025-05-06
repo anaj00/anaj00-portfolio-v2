@@ -5,14 +5,14 @@
     <v-spacer></v-spacer>
 
     <span class="hidden-sm-and-down pr-2">
-      <v-btn variant="plain" class="text-capitalize icon-hover">About me</v-btn>
-      <v-btn variant="plain" class="text-capitalize icon-hover">My Work</v-btn>
-      <v-btn variant="plain" class="text-capitalize icon-hover">Portfolio</v-btn>
+      <v-btn variant="plain" class="text-capitalize hover-accent">About me</v-btn>
+      <v-btn variant="plain" class="text-capitalize hover-accent">My Work</v-btn>
+      <v-btn variant="plain" class="text-capitalize hover-accent">Portfolio</v-btn>
     </span>
 
     <template v-slot:append>
       <span class="hidden-md-and-up">
-        <v-app-bar-nav-icon class="text-h4 mr-1 mb-2" @click="toggleDrawer">✿</v-app-bar-nav-icon>
+        <a class="text-h4 mr-1 mb-2 hover-accent" @click="toggleDrawer">✿</a>
       </span>
     </template>
   </v-app-bar>
@@ -46,7 +46,7 @@
 
 <style scoped>
 .hover-accent {
-  transition: color 0.3s ease;
+  transition: color 0.1s ease;
 }
 
 .hover-accent:hover {
