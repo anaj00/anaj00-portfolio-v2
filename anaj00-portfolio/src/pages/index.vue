@@ -1,5 +1,6 @@
 <template>
   <HeroSection />
+  <MyWorkSection />
 
 </template>
 
