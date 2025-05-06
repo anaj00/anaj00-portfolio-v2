@@ -30,7 +30,7 @@
           density="comfortable"
           rounded="md"
           flat
-          height="57vh"
+          height="500"
         >
         </v-card>
       </v-col>
@@ -44,8 +44,8 @@
   const texts = [
     "a frontend dev",
     "a data enthusiast",
-    "a UI/UX designer",
-    "a curious mind",
+    "obsessed with clean UI,
+    "building cool things",
     "a cat lover",
   ];
 
