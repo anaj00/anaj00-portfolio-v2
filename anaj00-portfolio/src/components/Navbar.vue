@@ -5,9 +5,9 @@
     <v-spacer></v-spacer>
 
     <span class="hidden-sm-and-down pr-2">
-      <v-btn variant="plain" class="text-capitalize">About me</v-btn>
-      <v-btn variant="plain" class="text-capitalize">My Work</v-btn>
-      <v-btn variant="plain" class="text-capitalize">Portfolio</v-btn>
+      <v-btn variant="plain" class="text-capitalize icon-hover">About me</v-btn>
+      <v-btn variant="plain" class="text-capitalize icon-hover">My Work</v-btn>
+      <v-btn variant="plain" class="text-capitalize icon-hover">Portfolio</v-btn>
     </span>
 
     <template v-slot:append>

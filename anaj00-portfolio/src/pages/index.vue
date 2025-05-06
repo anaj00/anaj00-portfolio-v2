@@ -1,9 +1,22 @@
 <template>
-  <HeroSection />
-  <MyWorkSection />
+  <v-container fluid>
+    <v-row>
+      <HeroSection />
+    </v-row>
+    <v-row class="margin-top-section">
+      <MyWorkSection />
+    </v-row>
+  </v-container>
+
 
 </template>
 
 <script setup>
-  //
+  
 </script>
+
+<style scoped>
+  .margin-top-section {
+    margin-top: 10%;
+  }
+</style>

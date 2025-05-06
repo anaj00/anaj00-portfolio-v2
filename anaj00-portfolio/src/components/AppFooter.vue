@@ -44,5 +44,5 @@ const items = [
   transition: .2s ease-in-out
 
   &:hover
-    color: rgba(25, 118, 210, 1)
+    color: var(--accent);
 </style>
