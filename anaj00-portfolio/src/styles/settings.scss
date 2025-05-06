@@ -4,16 +4,20 @@
  * Configures SASS variables and Vuetify overwrites
  */
 
-// https://vuetifyjs.com/features/sass-variables/`
+// https://vuetifyjs.com/features/sass-variables/
 // @use 'vuetify/settings' with (
 //   $color-pack: false
 // );
 
 :root {
-  --primary-color: #3d50ff;
-  --secondary-color: #ff45fe;
-  --accent-color: #ffd700;
-  --dark-color: #3a3a3c;
-  --light-color: #f9f9f9;
-  --highlight-color: #0077ff;
+  --primary-color: #776B5D;    // Deep base
+  --secondary-color: #B0A695; // Muted soft tone
+  --accent-color: #EBE3D5;     // Warm highlight
+  --background-color: #F3EEEA; // Light background
 }
+
+// Optional: SCSS variables for use in SASS
+$primary-color: #776B5D;
+$secondary-color: #B0A695;
+$accent-color: #EBE3D5;
+$background-color: #F3EEEA;

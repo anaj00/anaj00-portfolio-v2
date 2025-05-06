@@ -1,7 +1,7 @@
 /**
  * plugins/vuetify.js
  *
- * Framework documentation: https://vuetifyjs.com`
+ * Framework documentation: https://vuetifyjs.com
  */
 
 // Styles
@@ -11,21 +11,20 @@ import 'vuetify/styles'
 // Composables
 import { createVuetify } from 'vuetify'
 
-// https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
+// Vuetify theme setup
 export default createVuetify({
-  
   theme: {
+    defaultTheme: 'light',
     themes: {
       light: {
         colors: {
-          primary: '#3d50ff', // Main color
-          secondary: '#ff45fe', // Secondary color
-          accent: '#ffd700', // Accent color
-          black: '#333333',
-          white: '#f9f9f9',
+          primary: '#776B5D', // Deep base
+          secondary: '#B0A695', // Muted soft tone
+          accent: '#EBE3D5', // Warm highlight
+          background: '#F3EEEA', // Light background
+          surface: '#F3EEEA', // Match background for cards, etc.
         },
       },
     },
-    defaultTheme: 'light',
   },
 })
