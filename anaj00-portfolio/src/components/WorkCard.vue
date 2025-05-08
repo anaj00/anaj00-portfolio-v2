@@ -1,22 +1,31 @@
 <template>
   <v-card class="pa-4 mt-4 border fun-card" flat @click="showDialog = true">
-    <v-card-title class="font-weight-regular">{{ title }}</v-card-title>
+    <v-card-title class="font-weight-regular">
+      <div class="text-wrap text-justify" style="white-space: normal; word-break: break-word; line-height: 1.2;">
+        {{ title }}
+      </div>
+    </v-card-title>
     <v-card-text>
       {{ description }}
       <v-img :src="image" class="mt-3" rounded="lg" cover />
 
-      <div class="d-flex flex-row justify-space-between align-center mt-1">
-        <v-chip-group class="mt-1" column>
-          <v-chip v-for="techItem in tech" :key="techItem.label" variant="outlined">
-            <v-icon class="mr-2" size="20">{{ techItem.icon }}</v-icon>
-            {{ techItem.label }}
-          </v-chip>
-        </v-chip-group>
+      <v-row class="">
+        <v-col cols="10">
+          <v-chip-group column>
+            <v-chip v-for="techItem in tech" :key="techItem.label" variant="outlined">
+              <v-icon class="mr-2" size="20">{{ techItem.icon }}</v-icon>
+              {{ techItem.label }}
+            </v-chip>
+          </v-chip-group>
+        </v-col>
 
-        <a class="icon-hover" variant="plain" flat icon @click.stop="showDialog = true">
-          <v-icon>mdi-arrow-right</v-icon>
-        </a>
-      </div>
+        <v-col cols="2" class="d-flex align-end justify-end">
+          <a class="icon-hover mb-3" @click.stop="showDialog = true">
+            <v-icon>mdi-arrow-right</v-icon>
+          </a>
+        </v-col>
+      </v-row>
+
     </v-card-text>
   </v-card>
 
@@ -24,7 +33,9 @@
   <v-dialog v-model="showDialog" max-width="70vw" max-height="80vh" height="80vh" width="70vw">
     <v-card class="pa-4 bg-background">
       <v-card-title class="d-flex justify-space-between align-center">
-        <h1 class="text-h4 font-weight-light">{{ title }}</h1>
+        <div class="text-wrap" style="white-space: normal; word-break: break-word;">
+          {{ title }}
+        </div>
         <a icon @click="showDialog = false" flat class="icon-hover">
           <v-icon>mdi-close</v-icon>
         </a>
@@ -38,22 +49,34 @@
 
           <v-col cols="12" md="6" class="fill-height">
             <v-container class="mr-4">
-              <div class="mt-n5">
-                <a v-for="item in links" :key="item.title" class="d-inline-block social-link" :href="item.href"
-                  rel="noopener noreferrer" target="_blank" :title="item.title">
-                  <v-icon :icon="item.icon" :size="32" />
-                </a>
-              </div>
+              <!-- Long Description -->
+              <div class="mt-2 text-body-2 text-justify" v-html="formattedLongDescription" />
 
-              <p class="mt-3">{{ longDescription }}</p>
+              <!-- Key Highlights -->
+              <p class="mt-4 text-h6">Key Highlights</p>
+              <ul class="mt-2 ml-4 text-justify" style="list-style-type: disc;">
+                <li v-for="(point, index) in highlights" :key="index">{{ point }}</li>
+              </ul>
 
+              <!-- Technologies -->
               <p class="mt-4 text-h6">Technologies</p>
-              <v-chip-group class="mt-n2" column>
+              <v-chip-group class="" column>
                 <v-chip v-for="techItem in tech" :key="techItem.label" variant="outlined">
                   <v-icon class="mr-2" size="20">{{ techItem.icon }}</v-icon>
                   {{ techItem.label }}
                 </v-chip>
               </v-chip-group>
+
+              <!-- Links -->
+              <div class="d-flex flex-row mt-2">
+                <p class="text-h6">Links</p>
+                <div class="">
+                  <a v-for="item in links" :key="item.title" class="d-inline-block social-link ml-2" :href="item.href"
+                    rel="noopener noreferrer" target="_blank" :title="item.title">
+                    <v-icon :icon="item.icon" :size="30" />
+                  </a>
+                </div>
+              </div>
             </v-container>
           </v-col>
         </v-row>
@@ -63,20 +86,24 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 const showDialog = ref(false)
 
-defineProps({
+const props = defineProps({
   title: String,
   description: String,
   longDescription: String,
   image: String,
   tech: Array,
-  links: Array
+  links: Array,
+  highlights: Array
 })
-</script>
 
+const formattedLongDescription = computed(() =>
+  props.longDescription?.replace(/- (.*?)(\n|$)/g, '<li>$1</li>').replace(/\n/g, '<br>')
+)
+</script>
 
 <style scoped>
 .social-link :deep(.v-icon) {
