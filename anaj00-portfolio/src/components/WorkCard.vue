@@ -1,5 +1,9 @@
 <template>
   <v-card class="pa-4 mt-4 border fun-card" flat @click="showDialog = true">
+    <v-chip class="ml-2 mb-2" color="accent" small>
+      <v-icon class="mr-2" size="20">{{ getIconForTag(tag) }}</v-icon>
+      {{ tag }}
+    </v-chip>
     <v-card-title class="font-weight-regular">
       <div class="text-wrap text-justify" style="white-space: normal; word-break: break-word; line-height: 1.2">
         {{ title }}
@@ -84,16 +88,16 @@
                     {{ techItem.label }}
                   </v-chip>
                 </v-chip-group>
-              </div>
 
-              <!-- Links -->
-              <div class="d-flex flex-row mt-2 mb-2">
-                <p class="text-h6">Links</p>
-                <div>
-                  <a v-for="item in links" :key="item.title" class="d-inline-block social-link ml-2" :href="item.href"
-                    rel="noopener noreferrer" target="_blank" :title="item.title">
-                    <v-icon :icon="item.icon" :size="30" class="mt-n1" />
-                  </a>
+                <!-- Links -->
+                <div class="d-flex flex-row mt-2 mb-2">
+                  <p class="text-h6">Links</p>
+                  <div>
+                    <a v-for="item in links" :key="item.title" class="d-inline-block social-link ml-2" :href="item.href"
+                      rel="noopener noreferrer" target="_blank" :title="item.title">
+                      <v-icon :icon="item.icon" :size="30" class="mt-n1" />
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -122,6 +126,7 @@
   const showDialog = ref(false);
 
   const props = defineProps({
+    tag: String,
     title: String,
     description: String,
     longDescription: String,
@@ -135,6 +140,17 @@
   const hasImages = computed(() => {
     return props.images && props.images.length > 0;
   });
+
+  const tags = ["Software Engineering", "UI/UX Design", "Data Science"]
+
+  const getIconForTag = tag => {
+    const iconMap = {
+      'Software Development': 'mdi-code-tags',
+      'UI/UX Design': 'mdi-palette-swatch',
+      'Data Science / AI': 'mdi-brain',
+    }
+    return iconMap[tag] || 'mdi-tag'
+  }
 </script>
 
 <style scoped>
