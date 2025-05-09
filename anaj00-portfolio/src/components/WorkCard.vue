@@ -1,10 +1,7 @@
 <template>
   <v-card class="pa-4 mt-4 border fun-card" flat @click="showDialog = true">
     <v-card-title class="font-weight-regular">
-      <div
-        class="text-wrap text-justify"
-        style="white-space: normal; word-break: break-word; line-height: 1.2"
-      >
+      <div class="text-wrap text-justify" style="white-space: normal; word-break: break-word; line-height: 1.2">
         {{ title }}
       </div>
     </v-card-title>
@@ -17,10 +14,7 @@
       <v-row class="mt-1">
         <v-col cols="10">
           <v-chip-group column>
-            <v-chip
-              v-for="techItem in tech"
-              :key="techItem.label"
-            >
+            <v-chip v-for="techItem in tech" :key="techItem.label">
               <v-icon class="mr-2" size="20">{{ techItem.icon }}</v-icon>
               {{ techItem.label }}
             </v-chip>
@@ -40,10 +34,7 @@
   <v-dialog v-model="showDialog" max-width="70vw" max-height="80vh">
     <v-card class="pa-4 bg-background">
       <v-card-title class="d-flex justify-space-between align-center mb-3">
-        <div
-          class="text-wrap"
-          style="white-space: normal; word-break: break-word"
-        >
+        <div class="text-wrap" style="white-space: normal; word-break: break-word">
           {{ title }}
         </div>
         <a icon @click="showDialog = false" flat class="icon-hover">
@@ -53,24 +44,17 @@
 
       <v-container class="fill-height mt-n6 text-body-2">
         <v-row class="fill-height">
-          <v-col cols="12" md="6" class="fill-height d-flex flex-column">
+          <!-- Left column only if there are images -->
+          <v-col v-if="hasImages" cols="12" md="6" class="fill-height d-flex flex-column">
             <v-carousel hide-delimiters height="100%" class="rounded-lg">
-              <v-carousel-item
-                v-for="(img, index) in images"
-                :key="index"
-                :src="img"
-                contain
-              />
+              <v-carousel-item v-for="(img, index) in images" :key="index" :src="img" contain />
             </v-carousel>
 
             <!-- Technologies -->
             <div>
               <p class="mt-4 text-h6">Technologies</p>
-              <v-chip-group class="" column>
-                <v-chip
-                  v-for="techItem in tech"
-                  :key="techItem.label"
-                >
+              <v-chip-group column>
+                <v-chip v-for="techItem in tech" :key="techItem.label">
                   <v-icon class="mr-2" size="20">{{ techItem.icon }}</v-icon>
                   {{ techItem.label }}
                 </v-chip>
@@ -80,24 +64,39 @@
             <!-- Links -->
             <div class="d-flex flex-row mt-2">
               <p class="text-h6">Links</p>
-              <div class="">
-                <a
-                  v-for="item in links"
-                  :key="item.title"
-                  class="d-inline-block social-link ml-2"
-                  :href="item.href"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  :title="item.title"
-                >
-                  <v-icon :icon="item.icon" :size="30" />
+              <div>
+                <a v-for="item in links" :key="item.title" class="d-inline-block social-link ml-2" :href="item.href"
+                  rel="noopener noreferrer" target="_blank" :title="item.title">
+                  <v-icon class="mt-n1" :icon="item.icon" :size="30" />
                 </a>
               </div>
             </div>
           </v-col>
 
-          <v-col cols="12" md="6" class="fill-height">
+          <!-- Full-width column if no images, half-width otherwise -->
+          <v-col :cols="12" :md="hasImages ? 6 : 12" class="fill-height">
             <div class="mr-2">
+              <div v-if="!hasImages">
+                <p class="text-h6">Technologies</p>
+                <v-chip-group column>
+                  <v-chip v-for="techItem in tech" :key="techItem.label">
+                    <v-icon class="mr-2" size="20">{{ techItem.icon }}</v-icon>
+                    {{ techItem.label }}
+                  </v-chip>
+                </v-chip-group>
+              </div>
+
+              <!-- Links -->
+              <div class="d-flex flex-row mt-2 mb-2">
+                <p class="text-h6">Links</p>
+                <div>
+                  <a v-for="item in links" :key="item.title" class="d-inline-block social-link ml-2" :href="item.href"
+                    rel="noopener noreferrer" target="_blank" :title="item.title">
+                    <v-icon :icon="item.icon" :size="30" class="mt-n1" />
+                  </a>
+                </div>
+              </div>
+
               <!-- Long Description -->
               <div class="text-body-2 text-justify" v-html="longDescription" />
 
@@ -111,32 +110,31 @@
             </div>
           </v-col>
         </v-row>
+
       </v-container>
     </v-card>
   </v-dialog>
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+  import { ref, computed } from "vue";
 
-const showDialog = ref(false);
+  const showDialog = ref(false);
 
-const props = defineProps({
-  title: String,
-  description: String,
-  longDescription: String,
-  cardImage: String,
-  images: Array,
-  tech: Array,
-  links: Array,
-  highlights: Array,
-});
+  const props = defineProps({
+    title: String,
+    description: String,
+    longDescription: String,
+    cardImage: String,
+    images: Array,
+    tech: Array,
+    links: Array,
+    highlights: Array,
+  });
 
-const formattedLongDescription = computed(() =>
-  props.longDescription
-    ?.replace(/- (.*?)(\n|$)/g, "<li>$1</li>")
-    .replace(/\n/g, "<br>")
-);
+  const hasImages = computed(() => {
+    return props.images && props.images.length > 0;
+  });
 </script>
 
 <style scoped>
