@@ -99,7 +99,7 @@
       tech: [
         { label: 'Android Studio', icon: 'mdi-android' },
         { label: 'Firebase', icon: 'mdi-fire' },
-        { label: 'Material Design', icon: 'mdi-android-debug-bridge' }
+        { label: 'XML', icon: 'mdi-code-braces' }
       ],
       highlights: [
         'Designed and implemented the mobile frontend using Material Design components and XML layouts.',
@@ -124,7 +124,10 @@
         Key challenges included handling race conditions, synchronization, and using mutexes and condition variables to manage multi-threaded processes.
         This project strengthened my understanding of system-level programming and concurrent execution models.
       `,
-      image: '/img/dlsu-logo.png', // Update with correct image path if needed
+      cardImage: '/opesy/1.png', 
+      images: [
+        '/opesy/1.png',
+      ],
       tech: [
         { label: 'C++', icon: 'mdi-language-cpp' },
         { label: 'Multithreading', icon: 'mdi-code-braces' },
@@ -186,7 +189,6 @@
       image: '/img/dlsu-logo.png', // Update with correct image path if needed
       tech: [
         { label: 'MySQL', icon: 'mdi-database' },
-        { label: 'Python', icon: 'mdi-language-python' },
         { label: 'HTML/CSS', icon: 'mdi-language-html5' },
         { label: 'JavaScript', icon: 'mdi-language-javascript' }
       ],
@@ -209,7 +211,11 @@
       longDescription: `
         PetterCare is an innovative web platform aimed at improving pet care by offering a centralized hub for pet owners to manage their pets' health records, set reminders, and seek expert advice. As the Product Owner, I was responsible for setting the vision, prioritizing features, and coordinating the team. On the frontend, I focused on designing an intuitive, mobile-friendly interface with React and TypeScript, ensuring code scalability, type safety, and a clean user experience. Tailwind CSS was used to implement the platform's responsive design.
       `,
-      image: '/img/dlsu-logo.png', // Update with correct image path if needed
+      cardImage: 'petter-care/1.png', 
+      images: [
+        '/petter-care/1.png',
+        '/petter-care/2.png',
+      ],
       tech: [
         { label: 'React.js', icon: 'mdi-react' },
         { label: 'TypeScript', icon: 'mdi-language-typescript' },
@@ -247,7 +253,6 @@
         { label: 'Vue.js', icon: 'mdi-vuejs' },
         { label: 'Vuetify', icon: 'mdi-vuetify' },
         { label: 'HTML', icon: 'mdi-language-html5' },
-        { label: 'CSS', icon: 'mdi-language-css3' },
         { label: 'JavaScript', icon: 'mdi-language-javascript' }
       ],
       highlights: [
