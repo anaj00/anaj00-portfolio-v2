@@ -5,7 +5,7 @@
     <v-row>
       <v-col cols="12" md="6" v-for="(card, i) in cards" :key="i">
         <WorkCard :title="card.title" :description="card.description" :long-description="card.longDescription" :highlights="card.highlights"
-          :image="card.image" :tech="card.tech" :links="card.links" />
+          :image="card.image" :tech="card.tech" :links="card.links" :card-image="card.cardImage" :images="card.images"/>
       </v-col>
     </v-row>
   </v-container>
@@ -84,7 +84,18 @@
         Developed using Android Studio with Firebase as the backend, FurMate features real-time syncing and offline accessibility, ensuring users have access to vital pet data even without internet connectivity. 
         I served as the frontend developer, focusing on building an intuitive and responsive user interface that delivers a seamless user experience.
       `,
-      image: '/img/dlsu-logo.png', // Update with correct image path if needed
+      cardImage: '/furmate/cardImage.jpg',
+      images: [
+        '/furmate/12.jpg',
+        '/furmate/13.jpg',
+        '/furmate/14.jpg',
+        '/furmate/15.jpg',
+        '/furmate/16.jpg',
+        '/furmate/17.jpg',
+        '/furmate/18.jpg',
+        '/furmate/19.jpg',
+        '/furmate/20.jpg',
+      ],
       tech: [
         { label: 'Android Studio', icon: 'mdi-android' },
         { label: 'Firebase', icon: 'mdi-fire' },
@@ -141,7 +152,11 @@
         based on the IEEE 754 standards. Using Vue.js and Vuetify, the frontend provides real-time interactive conversion and visualization of the floating-point number components 
         (sign, exponent, mantissa). It supports both binary-to-decimal and decimal-to-binary conversions and helps reinforce understanding of the IEEE 754 binary64 representation.
       `,
-      image: '/img/dlsu-logo.png', // Update with correct image path if needed
+      cardImage: '/binary-64/1.png',
+      images: [
+        '/binary-64/1.png',
+        '/binary-64/2.png',
+      ],
       tech: [
         { label: 'Vue.js', icon: 'mdi-language-vue' },
         { label: 'Vuetify', icon: 'mdi-vuetify' },
@@ -154,7 +169,8 @@
         'Reinforced understanding of IEEE 754 binary64 representation.'
       ],
       links: [
-        { title: 'GitHub Repo', href: 'https://github.com/yourprojectrepo', icon: 'mdi-github' }
+        { title: 'GitHub Repo', href: 'https://github.com/yourprojectrepo', icon: 'mdi-github' },
+        { title: 'Live Demo', href: 'https://csarch-2-simulation-project-tau.vercel.app/', icon: 'mdi-open-in-new' },
       ]
     },
     {
@@ -219,7 +235,14 @@
       longDescription: `
         This project involved the development of a loan management system for a Luzon-based cooperative, designed to facilitate loan applications, member record management, and repayment tracking. I was the sole web designer, responsible for crafting an intuitive, responsive interface using Vue.js and Vuetify. The system was built in close collaboration with the client, ensuring it met their specific needs. The project followed Agile Scrum methodology, allowing for continuous feedback and iterative development to refine the system over time.
       `,
-      image: '/img/dlsu-logo.png', // Update with correct image path if needed
+      cardImage: '/unbound/1.png',
+      images: [
+        '/unbound/1.png',
+        '/unbound/2.png',
+        '/unbound/3.png',
+        '/unbound/4.png',
+        '/unbound/5.png',
+      ],
       tech: [
         { label: 'Vue.js', icon: 'mdi-vuejs' },
         { label: 'Vuetify', icon: 'mdi-vuetify' },
@@ -245,7 +268,11 @@
       longDescription: `
         Tastee is a food review website designed to allow users to rate and review restaurants across the Metro. I played a key role in both the frontend and backend development, utilizing Node.js for the backend logic, user authentication, and data storage. Handlebars was used for templating, enabling the creation of dynamic views that rendered quickly and were easy to maintain. The platform allows users to submit ratings, comments, and photos, providing a rich and interactive experience. The website was designed with responsiveness in mind to ensure it functions seamlessly on both desktop and mobile devices.
       `,
-      image: '/img/dlsu-logo.png', // Update with correct image path if needed
+      cardImage: '/tastee/tastee.png',
+      images: [
+        '/tastee/tastee.png',
+      ],
+      
       tech: [
         { label: 'Node.js', icon: 'mdi-nodejs' },
         { label: 'Handlebars.js', icon: 'mdi-language-javascript' },
@@ -260,8 +287,9 @@
         'Focused on responsive design for desktop and mobile platforms.'
       ],
       links: [
-        { title: 'GitHub Repo', href: 'https://github.com/yourprojectrepo', icon: 'mdi-github' }
-      ]
+        { title: 'GitHub Repo', href: 'https://github.com/yourprojectrepo', icon: 'mdi-github' },
+        { title: 'Live Demo', href: 'https://tastee-47ty.onrender.com', icon: 'mdi-open-in-new' },
+      ],
     },
     {
       title: 'MyFarm',

@@ -1,18 +1,26 @@
 <template>
   <v-card class="pa-4 mt-4 border fun-card" flat @click="showDialog = true">
     <v-card-title class="font-weight-regular">
-      <div class="text-wrap text-justify" style="white-space: normal; word-break: break-word; line-height: 1.2;">
+      <div
+        class="text-wrap text-justify"
+        style="white-space: normal; word-break: break-word; line-height: 1.2"
+      >
         {{ title }}
       </div>
     </v-card-title>
     <v-card-text>
-      {{ description }}
-      <v-img :src="image" class="mt-3" rounded="lg" cover />
+      <v-img :src="cardImage" class="mt-1" rounded="lg" cover />
+      <div class="mt-2 text-body-2 text-justify">
+        {{ description }}
+      </div>
 
-      <v-row class="">
+      <v-row class="mt-1">
         <v-col cols="10">
           <v-chip-group column>
-            <v-chip v-for="techItem in tech" :key="techItem.label" variant="outlined">
+            <v-chip
+              v-for="techItem in tech"
+              :key="techItem.label"
+            >
               <v-icon class="mr-2" size="20">{{ techItem.icon }}</v-icon>
               {{ techItem.label }}
             </v-chip>
@@ -25,15 +33,17 @@
           </a>
         </v-col>
       </v-row>
-
     </v-card-text>
   </v-card>
 
   <!-- Dialog -->
-  <v-dialog v-model="showDialog" max-width="70vw" max-height="80vh" height="80vh" width="70vw">
+  <v-dialog v-model="showDialog" max-width="70vw" max-height="80vh">
     <v-card class="pa-4 bg-background">
-      <v-card-title class="d-flex justify-space-between align-center">
-        <div class="text-wrap" style="white-space: normal; word-break: break-word;">
+      <v-card-title class="d-flex justify-space-between align-center mb-3">
+        <div
+          class="text-wrap"
+          style="white-space: normal; word-break: break-word"
+        >
           {{ title }}
         </div>
         <a icon @click="showDialog = false" flat class="icon-hover">
@@ -41,43 +51,64 @@
         </a>
       </v-card-title>
 
-      <v-container class="fill-height mt-n6 text-body-2" fluid>
+      <v-container class="fill-height mt-n6 text-body-2">
         <v-row class="fill-height">
           <v-col cols="12" md="6" class="fill-height d-flex flex-column">
-            <v-img class="fill-height" :src="image" cover rounded="lg" />
-          </v-col>
+            <v-carousel hide-delimiters height="100%" class="rounded-lg">
+              <v-carousel-item
+                v-for="(img, index) in images"
+                :key="index"
+                :src="img"
+                contain
+              />
+            </v-carousel>
 
-          <v-col cols="12" md="6" class="fill-height">
-            <v-container class="mr-4">
-              <!-- Long Description -->
-              <div class="mt-2 text-body-2 text-justify" v-html="formattedLongDescription" />
-
-              <!-- Key Highlights -->
-              <p class="mt-4 text-h6">Key Highlights</p>
-              <ul class="mt-2 ml-4 text-justify" style="list-style-type: disc;">
-                <li v-for="(point, index) in highlights" :key="index">{{ point }}</li>
-              </ul>
-
-              <!-- Technologies -->
+            <!-- Technologies -->
+            <div>
               <p class="mt-4 text-h6">Technologies</p>
               <v-chip-group class="" column>
-                <v-chip v-for="techItem in tech" :key="techItem.label" variant="outlined">
+                <v-chip
+                  v-for="techItem in tech"
+                  :key="techItem.label"
+                >
                   <v-icon class="mr-2" size="20">{{ techItem.icon }}</v-icon>
                   {{ techItem.label }}
                 </v-chip>
               </v-chip-group>
+            </div>
 
-              <!-- Links -->
-              <div class="d-flex flex-row mt-2">
-                <p class="text-h6">Links</p>
-                <div class="">
-                  <a v-for="item in links" :key="item.title" class="d-inline-block social-link ml-2" :href="item.href"
-                    rel="noopener noreferrer" target="_blank" :title="item.title">
-                    <v-icon :icon="item.icon" :size="30" />
-                  </a>
-                </div>
+            <!-- Links -->
+            <div class="d-flex flex-row mt-2">
+              <p class="text-h6">Links</p>
+              <div class="">
+                <a
+                  v-for="item in links"
+                  :key="item.title"
+                  class="d-inline-block social-link ml-2"
+                  :href="item.href"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  :title="item.title"
+                >
+                  <v-icon :icon="item.icon" :size="30" />
+                </a>
               </div>
-            </v-container>
+            </div>
+          </v-col>
+
+          <v-col cols="12" md="6" class="fill-height">
+            <div class="mr-2">
+              <!-- Long Description -->
+              <div class="text-body-2 text-justify" v-html="longDescription" />
+
+              <!-- Key Highlights -->
+              <p class="mt-4 text-h6">Key Highlights</p>
+              <ul class="mt-2 ml-4 text-justify" style="list-style-type: disc">
+                <li v-for="(point, index) in highlights" :key="index">
+                  {{ point }}
+                </li>
+              </ul>
+            </div>
           </v-col>
         </v-row>
       </v-container>
@@ -86,23 +117,26 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed } from "vue";
 
-const showDialog = ref(false)
+const showDialog = ref(false);
 
 const props = defineProps({
   title: String,
   description: String,
   longDescription: String,
-  image: String,
+  cardImage: String,
+  images: Array,
   tech: Array,
   links: Array,
-  highlights: Array
-})
+  highlights: Array,
+});
 
 const formattedLongDescription = computed(() =>
-  props.longDescription?.replace(/- (.*?)(\n|$)/g, '<li>$1</li>').replace(/\n/g, '<br>')
-)
+  props.longDescription
+    ?.replace(/- (.*?)(\n|$)/g, "<li>$1</li>")
+    .replace(/\n/g, "<br>")
+);
 </script>
 
 <style scoped>
