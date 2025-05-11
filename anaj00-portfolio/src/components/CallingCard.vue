@@ -31,6 +31,8 @@
                 class="social-link"
                 href="https://github.com/anaj00"
                 title="GitHub"
+                rel="noopener noreferrer"
+                target="_blank"
               >
                 <v-icon icon="mdi-github" size="28" />
               </a>
@@ -38,6 +40,8 @@
                 class="social-link ml-3"
                 href="https://www.linkedin.com/in/jana-marie-bantolino/"
                 title="LinkedIn"
+                rel="noopener noreferrer"
+                target="_blank"
               >
                 <v-icon icon="mdi-linkedin" size="28" />
               </a>
