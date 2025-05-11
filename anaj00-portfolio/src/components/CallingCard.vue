@@ -1,58 +1,62 @@
 <template>
   <v-container fluid>
-    <v-row class="d-flex justify-center" align="center" no-gutters>
-      <v-col cols="12" sm="10" md="8" lg="6">
+    <v-row class="d-flex justify-center" align="center">
+      <v-col cols="12" sm="9" md="8" lg="6" xl="4">
         <v-card
-          class="pa-4 pa-sm-6 doodle-card d-flex flex-column flex-sm-row align-center hover-accent"
-          rounded="lg"
+          class="pa-4 pa-sm-6 hover-accent doodle-card"
+          rounded="md"
+          flat
         >
-          <!-- Profile Picture: stacks on top for xs, left for sm+ -->
-          <v-img
-            src="/pfp.png"
-            height="160"
-            width="160"
-            class="mx-auto mb-4 mb-sm-0 mr-sm-6"
-            contain
-          ></v-img>
+          <v-container class="d-flex flex-column flex-sm-row align-center ">
+            <!-- Profile Picture: stacks on top for xs, left for sm+ -->
+            <v-img
+              src="/pfp.png"
+              height="160"
+              width="160"
+              class="mx-auto mb-4 mb-sm-0 mr-sm-6"
+              contain
+            ></v-img>
 
-          <!-- Text Content -->
-          <div class="d-flex flex-column text-center text-sm-left mr-sm-6">
-            <h1 class="text-h6 text-sm-h5 font-weight-light">
-              Jana Marie Bantolino
-            </h1>
-            <h2 class="text-subtitle-2 font-weight-light mt-n1">
-              <a href="mailto:bantolino.jana@gmail.com" class="email-link">
-                bantolino.jana@gmail.com
-              </a>
-            </h2>
+            <!-- Text Content -->
+            <div class="d-flex flex-column text-center text-sm-left mr-sm-6">
+              <h1 class="text-h6 text-sm-h5 font-weight-light">
+                Jana Marie Bantolino
+              </h1>
+              <h2 class="text-subtitle-2 font-weight-light mt-n1">
+                <a href="mailto:bantolino.jana@gmail.com" class="email-link">
+                  bantolino.jana@gmail.com
+                </a>
+              </h2>
 
-            <div class="d-flex justify-center justify-sm-start align-center mt-3">
-              <a
-                class="social-link"
-                href="https://github.com/anaj00"
-                title="GitHub"
-                rel="noopener noreferrer"
-                target="_blank"
+              <div
+                class="d-flex justify-center justify-sm-start align-center mt-3"
               >
-                <v-icon icon="mdi-github" size="28" />
-              </a>
-              <a
-                class="social-link ml-3"
-                href="https://www.linkedin.com/in/jana-marie-bantolino/"
-                title="LinkedIn"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <v-icon icon="mdi-linkedin" size="28" />
-              </a>
+                <a
+                  class="social-link"
+                  href="https://github.com/anaj00"
+                  title="GitHub"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <v-icon icon="mdi-github" size="28" />
+                </a>
+                <a
+                  class="social-link ml-3"
+                  href="https://www.linkedin.com/in/jana-marie-bantolino/"
+                  title="LinkedIn"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <v-icon icon="mdi-linkedin" size="28" />
+                </a>
+              </div>
             </div>
-          </div>
+          </v-container>
         </v-card>
       </v-col>
     </v-row>
   </v-container>
 </template>
-
 
 <style scoped>
 .hover-accent {
@@ -86,6 +90,6 @@
 }
 
 .email-link:hover {
-  color: var(--accent); /* or any custom color like #1976D2 */
+  color: var(--accent);
 }
 </style>
