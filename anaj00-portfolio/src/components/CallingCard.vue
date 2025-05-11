@@ -1,48 +1,64 @@
 <template>
-  <div class="d-flex">
-    <v-card
-      class="pa-6 mr-10 doodle-card d-flex flex-row align-center justify-center"
-      height="250"
-      width="550"
-      rounded="lg"
-    >
-      <div>
-        <v-img src="/pfp.png" height="200" width="200"></v-img>
-      </div>
+  <v-container fluid>
+    <v-row class="d-flex justify-center" align="center" no-gutters>
+      <v-col cols="12" sm="10" md="8" lg="6">
+        <v-card
+          class="pa-4 pa-sm-6 doodle-card d-flex flex-column flex-sm-row align-center hover-accent"
+          rounded="lg"
+        >
+          <!-- Profile Picture: stacks on top for xs, left for sm+ -->
+          <v-img
+            src="/pfp.png"
+            height="160"
+            width="160"
+            class="mx-auto mb-4 mb-sm-0 mr-sm-6"
+            contain
+          ></v-img>
 
-      <div class="d-flex flex-column ml-8">
-        <h1 class="text-h6 text-sm-h5 font-weight-light">
-          Jana Marie Bantolino
-        </h1>
-        <h2 class="text-subtitle-2 font-weight-light mt-n1">
-          <a href="mailto:bantolino.jana@gmail.com" class="email-link">
-            bantolino.jana@gmail.com
-          </a>
-        </h2>
+          <!-- Text Content -->
+          <div class="d-flex flex-column text-center text-sm-left">
+            <h1 class="text-h6 text-sm-h5 font-weight-light">
+              Jana Marie Bantolino
+            </h1>
+            <h2 class="text-subtitle-2 font-weight-light mt-n1">
+              <a href="mailto:bantolino.jana@gmail.com" class="email-link">
+                bantolino.jana@gmail.com
+              </a>
+            </h2>
 
-        <div class="d-flex flex-row align-center mt-3">
-          <p class="text-h7 text-sm-h6 font-weight-light mr-1">@</p>
-          <a
-            class="d-inline-block social-link"
-            href="https://github.com/anaj00"
-            title="GitHub"
-          >
-            <v-icon icon="mdi-github" :size="32" />
-          </a>
-          <a
-            class="d-inline-block social-link"
-            href="https://www.linkedin.com/in/jana-marie-bantolino/"
-            title="GitHub"
-          >
-            <v-icon icon="mdi-linkedin" :size="32" />
-          </a>
-        </div>
-      </div>
-    </v-card>
-  </div>
+            <div class="d-flex justify-center justify-sm-start align-center mt-3">
+              <a
+                class="social-link"
+                href="https://github.com/anaj00"
+                title="GitHub"
+              >
+                <v-icon icon="mdi-github" size="28" />
+              </a>
+              <a
+                class="social-link ml-3"
+                href="https://www.linkedin.com/in/jana-marie-bantolino/"
+                title="LinkedIn"
+              >
+                <v-icon icon="mdi-linkedin" size="28" />
+              </a>
+            </div>
+          </div>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
+
 <style scoped>
+.hover-accent {
+  transition: color 1s ease;
+}
+
+.hover-accent:hover {
+  background-color: var(--primary);
+}
+
 .doodle-card {
   border: 2.3px dashed #3f3f3f;
   background-color: var(--v-theme-background);
@@ -68,5 +84,4 @@
 .email-link:hover {
   color: var(--accent); /* or any custom color like #1976D2 */
 }
-
 </style>

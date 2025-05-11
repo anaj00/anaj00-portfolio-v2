@@ -1,6 +1,9 @@
 <template>
   <v-container height="95dvh">
     <v-row class="pa-4">
+      <v-col class="justify-end d-flex mb-7">
+        <CallingCard />
+      </v-col>
       <v-col cols="12">
         <div class="">
           <div class="d-flex align-start">
@@ -35,9 +38,7 @@
         </div>
       </v-col>
 
-      <v-col class="ml-5 mt-7">
-        <CallingCard />
-      </v-col>
+      
     </v-row>
   </v-container>
 </template>
