@@ -16,7 +16,7 @@
           ></v-img>
 
           <!-- Text Content -->
-          <div class="d-flex flex-column text-center text-sm-left">
+          <div class="d-flex flex-column text-center text-sm-left mr-sm-6">
             <h1 class="text-h6 text-sm-h5 font-weight-light">
               Jana Marie Bantolino
             </h1>
