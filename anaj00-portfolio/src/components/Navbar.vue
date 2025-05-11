@@ -4,7 +4,7 @@
 
     <v-spacer></v-spacer>
 
-    <span class="hidden-sm-and-down pr-2">
+    <!-- <span class="hidden-sm-and-down pr-2">
       <v-btn variant="plain" class="text-capitalize hover-accent">About me</v-btn>
       <v-btn variant="plain" class="text-capitalize hover-accent">My Work</v-btn>
       <v-btn variant="plain" class="text-capitalize hover-accent">Portfolio</v-btn>
@@ -14,10 +14,10 @@
       <span class="hidden-md-and-up">
         <a class="text-h4 mr-1 mb-2 hover-accent" @click="toggleDrawer">✿</a>
       </span>
-    </template>
+    </template> -->
   </v-app-bar>
 
-  <v-navigation-drawer v-model="drawer" location="right" temporary>
+  <!-- <v-navigation-drawer v-model="drawer" location="right" temporary>
     <v-list>
       <v-list-item link to="/products">
         <v-list-item-title>About Me</v-list-item-title>
@@ -30,7 +30,7 @@
         <v-list-item-title>Portfolio</v-list-item-title>
       </v-list-item>
     </v-list>
-  </v-navigation-drawer>
+  </v-navigation-drawer> -->
 </template>
 
 <script setup>
