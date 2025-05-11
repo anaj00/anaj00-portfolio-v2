@@ -34,6 +34,11 @@ const items = [
     icon: `mdi-linkedin`,
     href: "https://www.linkedin.com/in/jana-marie-bantolino/",
   },
+  {
+    title: "Mail",
+    icon: `mdi-email`,
+    href: "mailto:bantolino.jana@gmail.com"
+  },
 ];
 </script>
 

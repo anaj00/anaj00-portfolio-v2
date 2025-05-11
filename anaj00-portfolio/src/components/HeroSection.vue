@@ -1,10 +1,14 @@
 <template>
   <v-container height="95dvh">
-    <v-row>
+    <v-row class="pa-4">
       <v-col cols="12">
-        <div class="pa-4">
+        <div class="">
           <div class="d-flex align-start">
-            <h1 class="text-h4 text-sm-h3 text-md-h2 text-lg-h1 font-weight-medium">Hello, I'm Jana</h1>
+            <h1
+              class="text-h4 text-sm-h3 text-md-h2 text-lg-h1 font-weight-bold"
+            >
+              Hello, I'm Jana
+            </h1>
           </div>
 
           <div class="text-container">
@@ -13,14 +17,26 @@
             </h1>
           </div>
 
-          <h1 class="text-h4 text-sm-h3 text-md-h2 text-lg-h1">based in Metro Manila</h1>
+          <h1 class="text-h4 text-sm-h3 text-md-h2 text-lg-h1">
+            based in Metro Manila
+          </h1>
         </div>
       </v-col>
     </v-row>
     <v-row>
       <v-col cols="12">
-        <v-card class="pa-6 border" density="comfortable" rounded="md" flat height="57vh">
-        </v-card>
+        <div class="d-flex align-start">
+          <p class="text-h6 text-sm-h5 font-weight-light ml-5">
+            I am a Computer Science major at
+            <strong>De La Salle University </strong><br />
+            with a love for UI/UX, a knack for data science, and a passion for
+            software development.
+          </p>
+        </div>
+      </v-col>
+
+      <v-col class="ml-5 mt-7">
+        <CallingCard />
       </v-col>
     </v-row>
   </v-container>
@@ -56,7 +72,6 @@ function typeText(text) {
   }, typingSpeed);
 }
 
-
 onMounted(() => {
   typeText(texts[currentIndex.value]); // Initial type
 
@@ -65,8 +80,6 @@ onMounted(() => {
     typeText(texts[currentIndex.value]); // then type next one
   }, changeSpeed + texts[currentIndex.value].length * typingSpeed);
 });
-
-
 </script>
 
 <style scoped>
@@ -96,4 +109,7 @@ onMounted(() => {
     border-right: 4px solid transparent;
   }
 }
+
+
+
 </style>
