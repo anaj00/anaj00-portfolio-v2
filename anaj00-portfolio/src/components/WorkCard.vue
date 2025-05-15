@@ -35,13 +35,13 @@
   </v-card>
 
   <!-- Dialog -->
-  <v-dialog v-model="showDialog" max-width="70vw" max-height="80vh">
+  <v-dialog v-model="showDialog" :fullscreen="$vuetify.display.smAndDown" max-width="70vw" max-height="80vh">
     <v-card class="pa-4 bg-background">
-      <v-card-title class="d-flex justify-space-between align-center mb-3">
+      <v-card-title class="d-flex justify-space-between mb-3">
         <div class="text-wrap" style="white-space: normal; word-break: break-word">
           {{ title }}
         </div>
-        <a icon @click="showDialog = false" flat class="icon-hover">
+        <a icon @click="showDialog = false" flat class="icon-hover mt-n1">
           <v-icon>mdi-close</v-icon>
         </a>
       </v-card-title>
