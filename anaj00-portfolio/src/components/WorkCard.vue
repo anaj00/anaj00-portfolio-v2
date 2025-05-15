@@ -41,7 +41,7 @@
         <div class="text-wrap" style="white-space: normal; word-break: break-word">
           {{ title }}
         </div>
-        <a icon @click="showDialog = false" flat class="icon-hover mt-n1">
+        <a icon @click="showDialog = false" flat class="icon-hover">
           <v-icon>mdi-close</v-icon>
         </a>
       </v-card-title>
