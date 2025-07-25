@@ -5,7 +5,10 @@
       {{ tag }}
     </v-chip>
     <v-card-title class="font-weight-regular">
-      <div class="text-wrap text-justify" style="white-space: normal; word-break: break-word; line-height: 1.2">
+      <div
+        class="text-wrap text-justify"
+        style="white-space: normal; word-break: break-word; line-height: 1.2"
+      >
         {{ title }}
       </div>
     </v-card-title>
@@ -35,10 +38,16 @@
   </v-card>
 
   <!-- Dialog -->
-  <v-dialog v-model="showDialog" :fullscreen="$vuetify.display.smAndDown" max-width="70vw" max-height="80vh">
-    <v-card class="pa-4 bg-background">
+  <v-dialog
+    v-model="showDialog"
+    :fullscreen="$vuetify.display.smAndDown"
+    max-width="1200px"
+    scrollable
+  >
+    <v-card class="pa-md-4 bg-background" flat>
+      <!-- Title -->
       <v-card-title class="d-flex justify-space-between mb-3">
-        <div class="text-wrap" style="white-space: normal; word-break: break-word">
+        <div style="white-space: normal; word-break: break-word">
           {{ title }}
         </div>
         <a icon @click="showDialog = false" flat class="icon-hover">
@@ -46,111 +55,104 @@
         </a>
       </v-card-title>
 
-      <v-container class="fill-height mt-n6 text-body-2">
-        <v-row class="fill-height">
-          <!-- Left column only if there are images -->
-          <v-col v-if="hasImages" cols="12" md="6" class="fill-height d-flex flex-column">
-            <v-carousel hide-delimiters height="100%" class="rounded-lg">
-              <v-carousel-item v-for="(img, index) in images" :key="index" :src="img" contain />
-            </v-carousel>
+      <!-- Content -->
+      <v-card-text
+        style="max-height: 80vh;"
+        class="text-body-2"
+      >
+        <!-- Carousel -->
+        <div v-if="hasImages" class="mb-4">
+          <v-carousel
+            :show-arrows="images.length > 1"
+            height="500"
+            class="rounded-lg"
+          >
+            <v-carousel-item
+              v-for="(img, index) in images"
+              :key="index"
+              :src="img"
+              contain
+            />
+          </v-carousel>
+        </div>
 
-            <!-- Technologies -->
-            <div>
-              <p class="mt-4 text-h6">Technologies</p>
-              <v-chip-group column>
-                <v-chip v-for="techItem in tech" :key="techItem.label">
-                  <v-icon class="mr-2" size="20">{{ techItem.icon }}</v-icon>
-                  {{ techItem.label }}
-                </v-chip>
-              </v-chip-group>
-            </div>
+        <!-- Technologies -->
+        <div v-if="tech?.length">
+          <p class="text-h6">Technologies</p>
+          <v-chip-group column>
+            <v-chip v-for="techItem in tech" :key="techItem.label" class="ma-1">
+              <v-icon class="mr-2" size="20">{{ techItem.icon }}</v-icon>
+              {{ techItem.label }}
+            </v-chip>
+          </v-chip-group>
+        </div>
 
-            <!-- Links -->
-            <div class="d-flex flex-row mt-2">
-              <p class="text-h6">Links</p>
-              <div>
-                <a v-for="item in links" :key="item.title" class="d-inline-block social-link ml-2" :href="item.href"
-                  rel="noopener noreferrer" target="_blank" :title="item.title">
-                  <v-icon class="mt-n1" :icon="item.icon" :size="30" />
-                </a>
-              </div>
-            </div>
-          </v-col>
+        <!-- Links -->
+        <div v-if="links?.length" class="mt-4">
+          <p class="text-h6">Links</p>
+          <div>
+            <a
+              v-for="item in links"
+              :key="item.title"
+              class="d-inline-block social-link mr-2"
+              :href="item.href"
+              rel="noopener noreferrer"
+              target="_blank"
+              :title="item.title"
+            >
+              <v-icon :icon="item.icon" :size="30" class="mt-n1" />
+            </a>
+          </div>
+        </div>
 
-          <!-- Full-width column if no images, half-width otherwise -->
-          <v-col :cols="12" :md="hasImages ? 6 : 12" class="fill-height">
-            <div class="mr-2">
-              <div v-if="!hasImages">
-                <p class="text-h6">Technologies</p>
-                <v-chip-group column>
-                  <v-chip v-for="techItem in tech" :key="techItem.label">
-                    <v-icon class="mr-2" size="20">{{ techItem.icon }}</v-icon>
-                    {{ techItem.label }}
-                  </v-chip>
-                </v-chip-group>
+        <!-- Long Description -->
+        <div class="text-body-2 text-justify mt-4" v-html="longDescription" />
 
-                <!-- Links -->
-                <div class="d-flex flex-row mt-2 mb-2">
-                  <p class="text-h6">Links</p>
-                  <div>
-                    <a v-for="item in links" :key="item.title" class="d-inline-block social-link ml-2" :href="item.href"
-                      rel="noopener noreferrer" target="_blank" :title="item.title">
-                      <v-icon :icon="item.icon" :size="30" class="mt-n1" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Long Description -->
-              <div class="text-body-2 text-justify" v-html="longDescription" />
-
-              <!-- Key Highlights -->
-              <p class="mt-4 text-h6">Key Highlights</p>
-              <ul class="mt-2 ml-4 text-justify" style="list-style-type: disc">
-                <li v-for="(point, index) in highlights" :key="index">
-                  {{ point }}
-                </li>
-              </ul>
-            </div>
-          </v-col>
-        </v-row>
-
-      </v-container>
+        <!-- Highlights -->
+        <div v-if="highlights?.length" class="mt-6">
+          <p class="text-h6">Key Highlights</p>
+          <ul class="mt-2 ml-4 text-justify" style="list-style-type: disc">
+            <li v-for="(point, index) in highlights" :key="index">
+              {{ point }}
+            </li>
+          </ul>
+        </div>
+      </v-card-text>
     </v-card>
   </v-dialog>
 </template>
 
 <script setup>
-  import { ref, computed } from "vue";
+import { ref, computed } from "vue";
 
-  const showDialog = ref(false);
+const showDialog = ref(false);
 
-  const props = defineProps({
-    tag: String,
-    title: String,
-    description: String,
-    longDescription: String,
-    cardImage: String,
-    images: Array,
-    tech: Array,
-    links: Array,
-    highlights: Array,
-  });
+const props = defineProps({
+  tag: String,
+  title: String,
+  description: String,
+  longDescription: String,
+  cardImage: String,
+  images: Array,
+  tech: Array,
+  links: Array,
+  highlights: Array,
+});
 
-  const hasImages = computed(() => {
-    return props.images && props.images.length > 0;
-  });
+const hasImages = computed(() => {
+  return props.images && props.images.length > 0;
+});
 
-  const tags = ["Software Engineering", "UI/UX Design", "Data Science"]
+const tags = ["Software Engineering", "UI/UX Design", "Data Science"];
 
-  const getIconForTag = tag => {
-    const iconMap = {
-      'Software Development': 'mdi-code-tags',
-      'UI/UX Design': 'mdi-palette-swatch',
-      'Data Science / AI': 'mdi-brain',
-    }
-    return iconMap[tag] || 'mdi-tag'
-  }
+const getIconForTag = (tag) => {
+  const iconMap = {
+    "Software Development": "mdi-code-tags",
+    "UI/UX Design": "mdi-palette-swatch",
+    "Data Science / AI": "mdi-brain",
+  };
+  return iconMap[tag] || "mdi-tag";
+};
 </script>
 
 <style scoped>
@@ -173,5 +175,29 @@
 .icon-hover:hover :deep(.v-icon) {
   color: var(--accent);
   cursor: pointer;
+}
+
+/* Remove the dark background bar */
+:deep(.v-carousel__controls) {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 8px 0;
+}
+
+/* Minimalist dot style */
+:deep(.v-carousel__controls__item) {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #999;
+  opacity: 0.4;
+  margin: 0 4px;
+  transition: all 0.3s ease;
+}
+
+/* Active dot style */
+:deep(.v-carousel__controls__item--active) {
+  background-color: var(--accent) !important;
+  opacity: 1;
 }
 </style>
