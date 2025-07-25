@@ -22,7 +22,7 @@ export default [
     links: [
       {
         title: "Prototype (Figma)",
-        icon: "mdi-figma",
+        icon: "mdi-vector-square",
         href: "https://www.figma.com/proto/vNYFiGKblA3LRKR3JhWMKH/MVP?page-id=2%3A2&node-id=67-1360&viewport=-3230%2C-241%2C0.42&t=qfdxo5PgyPk2VGXq-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=60%3A1136",
       },
     ],
