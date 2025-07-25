@@ -83,6 +83,7 @@
                 :src="img"
                 class="max-w-full max-h-[500px] object-contain"
                 style="width: 100%; height: auto"
+                :loading="index === 0 ? 'eager' : 'lazy'"
               />
             </SplideSlide>
           </Splide>
