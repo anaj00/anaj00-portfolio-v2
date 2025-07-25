@@ -56,24 +56,36 @@
       </v-card-title>
 
       <!-- Content -->
-      <v-card-text
-        style="max-height: 80vh;"
-        class="text-body-2"
-      >
+      <v-card-text style="max-height: 80vh" class="text-body-2">
         <!-- Carousel -->
         <div v-if="hasImages" class="mb-4">
-          <v-carousel
-            :show-arrows="images.length > 1"
-            height="500"
-            class="rounded-lg"
+          <Splide
+            :options="{
+              arrows: images.length > 1,
+              pagination: true,
+              height: 'auto',
+              autoHeight: true,
+              fixedWidth: '100%',
+              breakpoints: {
+                600: {
+                  autoHeight: true,
+                },
+              },
+            }"
+            class="rounded-lg mb-4"
           >
-            <v-carousel-item
+            <SplideSlide
               v-for="(img, index) in images"
               :key="index"
-              :src="img"
-              contain
-            />
-          </v-carousel>
+              class="flex justify-center items-center"
+            >
+              <img
+                :src="img"
+                class="max-w-full max-h-[500px] object-contain"
+                style="width: 100%; height: auto"
+              />
+            </SplideSlide>
+          </Splide>
         </div>
 
         <!-- Technologies -->
@@ -124,6 +136,8 @@
 
 <script setup>
 import { ref, computed } from "vue";
+import "@splidejs/vue-splide/css";
+import { Splide, SplideSlide } from "@splidejs/vue-splide";
 
 const showDialog = ref(false);
 
@@ -175,29 +189,5 @@ const getIconForTag = (tag) => {
 .icon-hover:hover :deep(.v-icon) {
   color: var(--accent);
   cursor: pointer;
-}
-
-/* Remove the dark background bar */
-:deep(.v-carousel__controls) {
-  background: transparent !important;
-  box-shadow: none !important;
-  padding: 8px 0;
-}
-
-/* Minimalist dot style */
-:deep(.v-carousel__controls__item) {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #999;
-  opacity: 0.4;
-  margin: 0 4px;
-  transition: all 0.3s ease;
-}
-
-/* Active dot style */
-:deep(.v-carousel__controls__item--active) {
-  background-color: var(--accent) !important;
-  opacity: 1;
 }
 </style>

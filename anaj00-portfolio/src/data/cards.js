@@ -69,41 +69,6 @@ export default [
   },
   {
     tag: "Software Development",
-    title: "Distributed Fault-Tolerant Enrollment System",
-    description: `
-        A robust system for uninterrupted course registration, grade tracking, and administrative tasks, even during system failures. 
-        Built with Vue.js, Vuetify, and MongoDB, ensuring high availability, fault tolerance, and seamless operation for students, faculty, and admins.
-      `,
-    longDescription: `
-        This Enrollment System ensures uninterrupted course registration, grade tracking, and administrative tasks, even in the event of system failures. 
-        The system is designed with high availability and fault tolerance at its core, employing advanced strategies to recover from node failures and 
-        ensure that critical operations like course registration and grade management continue seamlessly. The platform features distinct interfaces 
-        for students, faculty, and admins. Built using Vue.js, Vuetify, and MongoDB, this project showcases my ability to design robust, resilient web applications.
-      `,
-    image: "/img/dlsu-logo.png",
-    tech: [
-      { label: "Vue.js", icon: "mdi-vuejs" },
-      { label: "Vuetify", icon: "mdi-vuetify" },
-      { label: "MongoDB", icon: "mdi-database" },
-      { label: "Distributed Systems", icon: "mdi-lan-connect" },
-    ],
-    highlights: [
-      "Fault tolerance mechanisms integrated to handle system disruptions without impacting core functionality, ensuring continuous operation during node failures.",
-      "Student-facing interface for course enrollment, grade checking, and account management, with automatic failover to ensure data integrity.",
-      "Faculty-facing and admin-facing interfaces designed to manage student records, grades, and courses with data consistency even in case of failures.",
-      "Built with Vue.js for dynamic, real-time updates and Vuetify for a responsive, user-friendly interface.",
-      "Leveraged MongoDB for reliable, scalable data storage and efficient error recovery.",
-    ],
-    links: [
-      {
-        title: "GitHub Repo",
-        href: "https://github.com/Dwigoric/stdiscm-probset-4",
-        icon: "mdi-github",
-      },
-    ],
-  },
-  {
-    tag: "Software Development",
     title: "FurMate: Android Pet Health Management App",
     description: `
         FurMate is an Android app that helps pet owners manage their pet’s health records, vaccination history, and documents in one place. 
@@ -410,6 +375,41 @@ export default [
         title: "Live Demo",
         href: "https://tastee-47ty.onrender.com",
         icon: "mdi-open-in-new",
+      },
+    ],
+  },
+  {
+    tag: "Software Development",
+    title: "Distributed Fault-Tolerant Enrollment System",
+    description: `
+        A robust system for uninterrupted course registration, grade tracking, and administrative tasks, even during system failures. 
+        Built with Vue.js, Vuetify, and MongoDB, ensuring high availability, fault tolerance, and seamless operation for students, faculty, and admins.
+      `,
+    longDescription: `
+        This Enrollment System ensures uninterrupted course registration, grade tracking, and administrative tasks, even in the event of system failures. 
+        The system is designed with high availability and fault tolerance at its core, employing advanced strategies to recover from node failures and 
+        ensure that critical operations like course registration and grade management continue seamlessly. The platform features distinct interfaces 
+        for students, faculty, and admins. Built using Vue.js, Vuetify, and MongoDB, this project showcases my ability to design robust, resilient web applications.
+      `,
+    image: "/img/dlsu-logo.png",
+    tech: [
+      { label: "Vue.js", icon: "mdi-vuejs" },
+      { label: "Vuetify", icon: "mdi-vuetify" },
+      { label: "MongoDB", icon: "mdi-database" },
+      { label: "Distributed Systems", icon: "mdi-lan-connect" },
+    ],
+    highlights: [
+      "Fault tolerance mechanisms integrated to handle system disruptions without impacting core functionality, ensuring continuous operation during node failures.",
+      "Student-facing interface for course enrollment, grade checking, and account management, with automatic failover to ensure data integrity.",
+      "Faculty-facing and admin-facing interfaces designed to manage student records, grades, and courses with data consistency even in case of failures.",
+      "Built with Vue.js for dynamic, real-time updates and Vuetify for a responsive, user-friendly interface.",
+      "Leveraged MongoDB for reliable, scalable data storage and efficient error recovery.",
+    ],
+    links: [
+      {
+        title: "GitHub Repo",
+        href: "https://github.com/Dwigoric/stdiscm-probset-4",
+        icon: "mdi-github",
       },
     ],
   },
