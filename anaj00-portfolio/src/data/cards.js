@@ -8,14 +8,12 @@ export default [
     highlights: [
       "Designed a cohesive physical-digital product experience combining surprise plant unboxing with mobile interaction.",
       "Led UI/UX for the Twiggy app prototype, focusing on onboarding flow, plant care dashboard, and collectible management.",
-      "Implemented QR code scanning to link physical kits with their digital counterparts.",
       "Conducted iterative prototyping and user testing to validate core interaction loops and collection mechanics.",
       "Planned seasonal drop system for plant kits and corresponding in-app collectible rewards.",
     ],
     tech: [
       { label: "Figma", icon: "mdi-vector-square" },
       { label: "Flutter (planned)", icon: "mdi-cellphone" },
-      { label: "QR Code Integration", icon: "mdi-qrcode-scan" },
       { label: "Gamification", icon: "mdi-gamepad-variant" },
       { label: "UI/UX Design", icon: "mdi-palette-swatch" },
     ],
